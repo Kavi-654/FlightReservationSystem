@@ -1,0 +1,166 @@
+# Flight Booking System
+
+## Problem Statement
+
+Develop a **Flight Booking Management System** that allows users to book tickets, cancel tickets, and view flight details with passenger information.
+
+---
+
+## Requirements
+
+### Module 1: Book Ticket
+Implement a ticket booking functionality that:
+- Accepts passenger details (name, age, contact information)
+- Accepts flight name/number
+- Accepts number of seats required
+- Validates seat availability
+- Calculates ticket price based on current pricing
+- Confirms booking and updates flight information
+
+### Module 2: Booking Conditions
+Your booking system must enforce the following rules:
+
+**a. Seat Capacity:**
+- Each flight has a maximum capacity of **50 seats**
+- System should not allow booking if requested seats exceed available seats
+
+**b. Passenger Information Required:**
+- Passenger Name
+- Flight Name/Number
+- Number of seats required
+- Additional details (age, contact) as needed
+
+**c. Dynamic Pricing:**
+- **Initial ticket price:** ₹5,000 per seat
+- **Price increment:** After every successful booking, the price per seat increases by ₹200
+- Example:
+  - 1st booking: ₹5,000 per seat
+  - 2nd booking: ₹5,200 per seat
+  - 3rd booking: ₹5,400 per seat
+
+**d. Booking Confirmation:**
+- Generate a unique booking ID
+- Display total amount paid
+- Update available seats
+- Store passenger information
+
+---
+
+### Module 3: Cancel Ticket
+Implement a ticket cancellation functionality that:
+- Accepts booking ID or passenger details
+- Validates the booking exists
+- Processes cancellation
+- Calculates and processes refund
+- Updates flight information
+
+### Module 4: Cancellation Conditions
+Your cancellation system must implement:
+
+**a. Refund Policy:**
+- Calculate refund amount based on the price at which tickets were originally booked
+- Display refund amount to passenger
+- Process the refund
+
+**b. Price Reduction:**
+- For every cancelled ticket, reduce the current ticket price by ₹200
+- Ensure price does not go below the base price of ₹5,000
+- Example:
+  - Current price: ₹5,800
+  - After 1 cancellation: ₹5,600
+  - After 2 cancellations: ₹5,400
+
+**c. Seat Availability:**
+- Increase available seats by the number of cancelled seats
+- Update flight capacity information
+
+---
+
+### Module 5: Display Flight Details
+Implement a display functionality that shows:
+- Flight Name/Number
+- Total seats and available seats
+- Current ticket price
+- List of all booked passengers with their details:
+  - Booking ID
+  - Passenger Name
+  - Number of seats
+  - Amount Paid
+  - Booking Date/Time
+
+---
+
+## Expected Functionality
+
+Your program should provide a menu-driven interface with the following options:
+
+1. **Book Ticket** - Book new tickets for passengers
+2. **Cancel Ticket** - Cancel existing bookings
+3. **Display Flight Details** - View all flight information and passenger list
+4. **Exit** - Terminate the program
+
+---
+
+## Sample Test Cases
+
+### Test Case 1: Initial Booking
+```
+Input: Book 2 seats for "John Doe" on Flight "AI101"
+Expected Output:
+- Booking successful
+- Amount: ₹10,000 (2 × ₹5,000)
+- Available seats: 48
+- Next ticket price: ₹5,200
+```
+
+### Test Case 2: Multiple Bookings
+```
+Input:
+1. Book 3 seats - Price: ₹5,000 each
+2. Book 2 seats - Price: ₹5,200 each
+Expected: Available seats: 45, Next price: ₹5,400
+```
+
+### Test Case 3: Cancellation
+```
+Input: Cancel 2 seats booked at ₹5,200 each
+Expected Output:
+- Refund: ₹10,400
+- Available seats increase by 2
+- Current price reduces to ₹5,200
+```
+
+### Test Case 4: Capacity Check
+```
+Input: Book 60 seats (more than capacity)
+Expected Output: Error message - "Only 50 seats available"
+```
+
+---
+
+## Constraints
+
+- Maximum seats per flight: 50
+- Minimum ticket price: ₹5,000 (base price)
+- Price increment/decrement: ₹200 per booking/cancellation
+- All bookings must have valid passenger information
+- Booking IDs must be unique
+
+---
+
+## Additional Notes
+
+- Use appropriate data structures (arrays, lists, or objects/classes)
+- Implement proper error handling and validation
+- Ensure data persistence during program execution
+- Code should be modular and well-commented
+- Follow proper naming conventions
+
+---
+
+## Bonus Features (Optional)
+- Add multiple flights support
+- Implement different classes (Economy, Business)
+- Add date-based booking
+- Generate printable ticket receipts
+- Implement waiting list for fully booked flights
