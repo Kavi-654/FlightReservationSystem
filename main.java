@@ -1,0 +1,10 @@
+package FlightTicketReservationSystem;
+
+import FlightTicketReservationSystem.view.View;
+
+public class main {
+    public static void main(String[] args) {
+        View view=new View();
+        view.start();
+    }
+}
